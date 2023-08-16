@@ -25,9 +25,9 @@ def menu() -> tuple:
 
     return coin, format
 
+if __name__ == '__main__':
+    API = Coin(base_url=BASE_URL)
+    coin, format = menu()
 
-API = Coin(base_url=BASE_URL)
-coin, format = menu()
-
-current_value, time = API.check_price(coin, format)
-print('\n' + current_value, time)
+    current_value, time = API.check_price(coin, format)
+    print('\n' + current_value, time)
