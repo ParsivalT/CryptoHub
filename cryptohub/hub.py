@@ -3,7 +3,7 @@ import logging
 from datetime import datetime
 
 # Base URL for the cryptocurrency price API
-BASE_URL = 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=COIN&tsyms=FORMAT'
+"""BASE_URL = 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=COIN&tsyms=FORMAT' """
 
 # Log record format
 LOG_FORMAT = 'Date/Time: %(asctime)s | LEVEL:%(levelname)s | Message:%(message)s'
@@ -57,9 +57,3 @@ class Coin:
             print('offline API please try again later')
             LOG.warning('Offline API during program execution')
 
-
-
-
-coin = Coin(BASE_URL)
-
-print(coin.check_price('BTC', 'BRL'))
