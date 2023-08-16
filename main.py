@@ -30,4 +30,4 @@ API = Coin(base_url=BASE_URL)
 coin, format = menu()
 
 current_value, time = API.check_price(coin, format)
-print(current_value, time)
+print('\n' + current_value, time)
