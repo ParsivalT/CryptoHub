@@ -14,11 +14,12 @@ LOG = logging.getLogger()
 
 class Coin:
     def __init__(self, base_url: str):
-        self.base_url = base_url
-
+        self.api = base_url
+        self.default_url =  'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD'
+        
     # Check if the API is online
     def ping(self) -> bool:
-        if requests.get(self.base_url).status_code == 200:
+        if requests.get(self.default_url).status_code == 200:
             return True
         else:
             # Log a warning if the API is offline
@@ -32,7 +33,7 @@ class Coin:
             if self.ping():
 
                 # Replace placeholders in the URL to get the full API URL
-                api = self.base_url.replace('COIN', coin_id)
+                api = self.api.replace('COIN', coin_id)
                 api = api.replace('FORMAT', format)
                 
                 # Make a GET request to the API and retrieve the JSON response
